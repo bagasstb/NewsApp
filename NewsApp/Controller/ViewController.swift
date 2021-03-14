@@ -40,7 +40,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsListTableViewCell.cellIdentifier, for: indexPath) as! NewsListTableViewCell
-        let newsViewModel = NewsViewModel(title: newsModel[indexPath.row].title)
+        let newsViewModel = NewsViewModel(news: newsModel[indexPath.row])
         cell.setData(with: newsViewModel)
         return cell
     }

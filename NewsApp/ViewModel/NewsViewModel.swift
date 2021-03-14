@@ -8,4 +8,9 @@
 struct NewsViewModel {
     
     let title: String
+    
+    // Dependency Injection
+    init(news: News) {
+        self.title = news.title
+    }
 }

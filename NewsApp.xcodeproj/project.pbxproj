@@ -21,6 +21,7 @@
 		D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074EFE425FE1638009B96E8 /* NewsViewModel.swift */; };
 		D074EFEC25FE177F009B96E8 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074EFEA25FE177F009B96E8 /* NewsDetailViewController.swift */; };
 		D074EFED25FE177F009B96E8 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */; };
+		D0C279D425FE379600F33BFD /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279D325FE379600F33BFD /* ApiKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		D074EFE425FE1638009B96E8 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		D074EFEA25FE177F009B96E8 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
+		D0C279CB25FE35D100F33BFD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D0C279D325FE379600F33BFD /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,7 @@
 		D04A994425FE0E3D000822EF /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0C279D225FE377D00F33BFD /* Utils */,
 				D074EFDE25FE117F009B96E8 /* Services */,
 				D04A997B25FE0FFF000822EF /* Controller */,
 				D04A997A25FE0FEE000822EF /* View */,
@@ -121,6 +125,7 @@
 				D04A994E25FE0E3E000822EF /* Assets.xcassets */,
 				D04A995025FE0E3E000822EF /* LaunchScreen.storyboard */,
 				D04A995325FE0E3E000822EF /* Info.plist */,
+				D0C279CB25FE35D100F33BFD /* Config.xcconfig */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -200,6 +205,14 @@
 				D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */,
 			);
 			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		D0C279D225FE377D00F33BFD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D0C279D325FE379600F33BFD /* ApiKey.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +349,7 @@
 			files = (
 				D04A994A25FE0E3D000822EF /* ViewController.swift in Sources */,
 				D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */,
+				D0C279D425FE379600F33BFD /* ApiKey.swift in Sources */,
 				D04A994625FE0E3D000822EF /* AppDelegate.swift in Sources */,
 				D074EFEC25FE177F009B96E8 /* NewsDetailViewController.swift in Sources */,
 				D04A998225FE10C4000822EF /* NewsListTableViewCell.swift in Sources */,
@@ -397,6 +411,7 @@
 /* Begin XCBuildConfiguration section */
 		D04A996A25FE0E3E000822EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0C279CB25FE35D100F33BFD /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -458,6 +473,7 @@
 		};
 		D04A996B25FE0E3E000822EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0C279CB25FE35D100F33BFD /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
