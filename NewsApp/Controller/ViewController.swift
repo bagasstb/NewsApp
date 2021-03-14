@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     private func uiInit() {
-        self.title = "New York Times"
+        self.title = LocaleString.homeTitle
     }
     
     fileprivate func fetchData() {
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             } else {
                 if let results = newsList?.results {
                     if results.count == 0 {
-                        strongSelf.infoLabel.text = "No News Found"
+                        strongSelf.infoLabel.text = LocaleString.dataNotFound
                     } else {
                         strongSelf.newsModel = results
                         strongSelf.newsTableView.reloadData()
@@ -55,8 +55,8 @@ class ViewController: UIViewController {
     }
     
     private func showErrorAlert() {
-        let alert = UIAlertController(title: "Network Error", message: "Unable to contact the server", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        let alert = UIAlertController(title: LocaleString.networkError, message: LocaleString.networkErrorMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: LocaleString.ok, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }

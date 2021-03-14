@@ -24,6 +24,7 @@
 		D0C279D425FE379600F33BFD /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279D325FE379600F33BFD /* ApiKey.swift */; };
 		D0C279DC25FE38D400F33BFD /* NewsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279DB25FE38D400F33BFD /* NewsServices.swift */; };
 		D0C279E225FE396600F33BFD /* NewsRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279E125FE396600F33BFD /* NewsRoutes.swift */; };
+		D0C27A2425FE64F100F33BFD /* LocaleString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C27A2325FE64F100F33BFD /* LocaleString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D0C279D325FE379600F33BFD /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		D0C279DB25FE38D400F33BFD /* NewsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServices.swift; sourceTree = "<group>"; };
 		D0C279E125FE396600F33BFD /* NewsRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRoutes.swift; sourceTree = "<group>"; };
+		D0C27A2325FE64F100F33BFD /* LocaleString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				D04A997825FE0FDC000822EF /* Model */,
 				D04A994525FE0E3D000822EF /* AppDelegate.swift */,
 				D04A994725FE0E3D000822EF /* SceneDelegate.swift */,
+				D0C27A2325FE64F100F33BFD /* LocaleString.swift */,
 				D04A994E25FE0E3E000822EF /* Assets.xcassets */,
 				D04A995025FE0E3E000822EF /* LaunchScreen.storyboard */,
 				D04A995325FE0E3E000822EF /* Info.plist */,
@@ -365,6 +368,7 @@
 				D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */,
 				D0C279D425FE379600F33BFD /* ApiKey.swift in Sources */,
 				D04A994625FE0E3D000822EF /* AppDelegate.swift in Sources */,
+				D0C27A2425FE64F100F33BFD /* LocaleString.swift in Sources */,
 				D074EFEC25FE177F009B96E8 /* NewsDetailViewController.swift in Sources */,
 				D04A998225FE10C4000822EF /* NewsListTableViewCell.swift in Sources */,
 				D074EFE025FE11AD009B96E8 /* News.swift in Sources */,

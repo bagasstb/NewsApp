@@ -30,4 +30,10 @@ class NewsAppTests: XCTestCase {
         }
     }
 
+    func testnewsViewModel() throws {
+        let news = News(title: "Title", abstract: "New Description", section: "community")
+        let newsViewModel = NewsViewModel(news: news)
+        
+        XCTAssertEqual(newsViewModel.section, "COMMUNITY")
+    }
 }
