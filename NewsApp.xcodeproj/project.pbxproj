@@ -22,6 +22,8 @@
 		D074EFEC25FE177F009B96E8 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074EFEA25FE177F009B96E8 /* NewsDetailViewController.swift */; };
 		D074EFED25FE177F009B96E8 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */; };
 		D0C279D425FE379600F33BFD /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279D325FE379600F33BFD /* ApiKey.swift */; };
+		D0C279DC25FE38D400F33BFD /* NewsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279DB25FE38D400F33BFD /* NewsServices.swift */; };
+		D0C279E225FE396600F33BFD /* NewsRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C279E125FE396600F33BFD /* NewsRoutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
 		D0C279CB25FE35D100F33BFD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		D0C279D325FE379600F33BFD /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
+		D0C279DB25FE38D400F33BFD /* NewsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServices.swift; sourceTree = "<group>"; };
+		D0C279E125FE396600F33BFD /* NewsRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRoutes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 		D04A994425FE0E3D000822EF /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0C279E025FE394C00F33BFD /* Routes */,
 				D0C279D225FE377D00F33BFD /* Utils */,
 				D074EFDE25FE117F009B96E8 /* Services */,
 				D04A997B25FE0FFF000822EF /* Controller */,
@@ -194,6 +199,7 @@
 		D074EFDE25FE117F009B96E8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D0C279DB25FE38D400F33BFD /* NewsServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -213,6 +219,14 @@
 				D0C279D325FE379600F33BFD /* ApiKey.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D0C279E025FE394C00F33BFD /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				D0C279E125FE396600F33BFD /* NewsRoutes.swift */,
+			);
+			path = Routes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +368,8 @@
 				D074EFEC25FE177F009B96E8 /* NewsDetailViewController.swift in Sources */,
 				D04A998225FE10C4000822EF /* NewsListTableViewCell.swift in Sources */,
 				D074EFE025FE11AD009B96E8 /* News.swift in Sources */,
+				D0C279DC25FE38D400F33BFD /* NewsServices.swift in Sources */,
+				D0C279E225FE396600F33BFD /* NewsRoutes.swift in Sources */,
 				D04A994825FE0E3D000822EF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

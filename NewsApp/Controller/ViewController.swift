@@ -10,15 +10,16 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
-    private let newsModel: [News] = [
-        News(title: "News Title1", desciption: "Lorem ipsum dolor sit amet"),
-        News(title: "News Title2", desciption: "Lorem ipsum dolor sit amet")
+    private var newsModel: [News] = [
+        News(title: "News Title1", abstract: "Lorem ipsum dolor sit amet"),
+        News(title: "News Title2", abstract: "Lorem ipsum dolor sit amet")
     ]
         
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewInit()
         uiInit()
+        fetchData()
     }
 
     private func tableViewInit() {
@@ -30,6 +31,16 @@ class ViewController: UIViewController {
     private func uiInit() {
         self.title = "New York Times"
     }
+    
+    fileprivate func fetchData() {
+        NewsServices.shared.fetchNews { (newsList, error) in
+            if let results = newsList?.results {
+                self.newsModel = results
+                self.newsTableView.reloadData()
+            }
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

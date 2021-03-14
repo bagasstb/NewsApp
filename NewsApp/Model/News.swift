@@ -5,13 +5,13 @@
 //  Created by bagasstb on 14/03/21.
 //
 
-struct NewsList {
+struct NewsList: Decodable {
     
     let results: [News]
 }
 
-struct News {
+struct News: Decodable {
     
     let title: String
-    let desciption: String
+    let abstract: String
 }
