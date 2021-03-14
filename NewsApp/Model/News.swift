@@ -14,4 +14,5 @@ struct News: Decodable {
     
     let title: String
     let abstract: String
+    let section: String
 }

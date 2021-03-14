@@ -10,10 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
-    private var newsModel: [News] = [
-        News(title: "News Title1", abstract: "Lorem ipsum dolor sit amet"),
-        News(title: "News Title2", abstract: "Lorem ipsum dolor sit amet")
-    ]
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    private var newsModel: [News] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,32 @@ class ViewController: UIViewController {
     }
     
     fileprivate func fetchData() {
-        NewsServices.shared.fetchNews { (newsList, error) in
-            if let results = newsList?.results {
-                self.newsModel = results
-                self.newsTableView.reloadData()
+        newsTableView.isHidden = true
+        activityIndicatorView.startAnimating()
+        NewsServices.shared.fetchNews { [weak self] (newsList, error) in
+            guard let strongSelf = self else { return }
+            strongSelf.activityIndicatorView.stopAnimating()
+            strongSelf.newsTableView.isHidden = false
+            if error != nil {
+                strongSelf.showErrorAlert()
+            } else {
+                if let results = newsList?.results {
+                    if results.count == 0 {
+                        strongSelf.infoLabel.text = "No News Found"
+                    } else {
+                        strongSelf.newsModel = results
+                        strongSelf.newsTableView.reloadData()
+                    }
+                }
             }
         }
     }
     
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "Network Error", message: "Unable to contact the server", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
