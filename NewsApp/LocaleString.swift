@@ -14,4 +14,5 @@ struct LocaleString {
     static let networkError = "Network Error"
     static let networkErrorMessage = "Unable to contact the server"
     static let ok = "Ok"
+    static let newsDetail = "News Detail"
 }

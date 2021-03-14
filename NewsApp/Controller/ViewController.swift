@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var infoLabel: UILabel!
@@ -77,7 +77,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newsDetailVC = NewsDetailViewController()
         if let navigation = self.navigationController {
-            newsDetailVC.title = newsModel[indexPath.row].title
+//            let data = newsModel[indexPath.row]
+            newsDetailVC.title = LocaleString.newsDetail
+            newsDetailVC.newsModel = self.newsModel
+            newsDetailVC.currentIndex = indexPath.row
             navigation.pushViewController(newsDetailVC, animated: true)
         }
     }

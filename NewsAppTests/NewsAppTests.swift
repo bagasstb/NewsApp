@@ -30,10 +30,20 @@ class NewsAppTests: XCTestCase {
         }
     }
 
-    func testnewsViewModel() throws {
-        let news = News(title: "Title", abstract: "New Description", section: "community")
+    func testNewsViewModel() throws {
+        let news = News(title: "Title", abstract: "New Description", section: "community", url: "http://www.google.com", byline: "", multimedia: [])
         let newsViewModel = NewsViewModel(news: news)
-        
         XCTAssertEqual(newsViewModel.section, "COMMUNITY")
+    }
+    
+    func testNewsDetailViewModel() throws {
+        /// Get normal photo from multimedia array
+        let multimedia1 = Multimedia(url: "https://static01.nyt.com/images/2021/03/14/world/14virus-southafrica-print1/merlin_184251252_33054031-c95c-4cbe-8b42-fe3ac50862cd-mediumThreeByTwo210.jpg", format: "mediumThreeByTwo210", caption: "caption", copyright: "copyright")
+        let multimedia2 = Multimedia(url: "https://static01.nyt.com/images/2021/03/14/world/14virus-southafrica-print1/merlin_184251252_33054031-c95c-4cbe-8b42-fe3ac50862cd-articleInline.jpg", format: "Normal", caption: "caption", copyright: "copyright")
+        
+        let news = News(title: "Title", abstract: "New Description", section: "community", url: "http://www.google.com", byline: "", multimedia: [multimedia1, multimedia2])
+        let newsDetailViewModel = NewsDetailViewModel(news: news)
+        
+        XCTAssertEqual(newsDetailViewModel.photo, multimedia2.url)
     }
 }
