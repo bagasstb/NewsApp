@@ -11,16 +11,30 @@ class NewsDetailViewController: UIViewController {
 
     @IBOutlet weak var newsDetailCollectionView: UICollectionView!
     
-    var url: String = ""
-    var newsModel: [News] = []
+    var newsDetailViewModel: NewsDetailViewModel?
     var currentIndex: Int = 0
+    var newsModel: [News] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableInit()
+        print("Current index \(currentIndex)")
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        newsDetailCollectionView.isPagingEnabled = false
+        newsDetailCollectionView.scrollToItem(at: getIndex(index: currentIndex), at: .right, animated: true)
+        newsDetailCollectionView.isPagingEnabled = true
+    }
+    
+    private func tableInit() {
         newsDetailCollectionView.register(NewsDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: NewsDetailCollectionViewCell.cellIdentifier)
         newsDetailCollectionView.delegate = self
         newsDetailCollectionView.dataSource = self
         newsDetailCollectionView.collectionViewLayout = setFlowLayout()
+       
     }
     
     private func setFlowLayout() -> UICollectionViewFlowLayout {
@@ -31,6 +45,10 @@ class NewsDetailViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         return layout
+    }
+    
+    private func getIndex(index: Int) -> IndexPath {
+        return IndexPath.init(item: index, section: 0)
     }
 }
 
@@ -44,7 +62,7 @@ extension NewsDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsDetailCollectionViewCell.cellIdentifier, for: indexPath) as! NewsDetailCollectionViewCell
         let news = newsModel[indexPath.row]
         let newsDetailViewModel = NewsDetailViewModel(news: news)
-        cell.setData(with: newsDetailViewModel)
+        cell.setData(with: newsDetailViewModel, vc: self)
         return cell
     }
     
