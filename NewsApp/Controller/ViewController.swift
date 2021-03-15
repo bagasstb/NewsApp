@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableViewInit()
         uiInit()
+        fetchCacheData()
         fetchData()
     }
 
@@ -30,6 +31,13 @@ class ViewController: UIViewController {
     
     private func uiInit() {
         self.title = LocaleString.homeTitle
+    }
+    
+    fileprivate func fetchCacheData () {
+        if let news = NewsServices.shared.getCache() {
+            self.newsModel = news.results
+            self.newsTableView.reloadData()
+        }
     }
     
     fileprivate func fetchData() {

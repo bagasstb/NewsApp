@@ -5,12 +5,12 @@
 //  Created by bagasstb on 14/03/21.
 //
 
-struct NewsList: Decodable {
+struct NewsList: Decodable, Encodable {
     
     let results: [News]
 }
 
-struct News: Decodable {
+struct News: Decodable, Encodable {
     
     let title: String
     let abstract: String
@@ -20,7 +20,7 @@ struct News: Decodable {
     let multimedia: [Multimedia]
 }
 
-struct Multimedia: Decodable {
+struct Multimedia: Decodable, Encodable {
     
     let url: String
     let format: String

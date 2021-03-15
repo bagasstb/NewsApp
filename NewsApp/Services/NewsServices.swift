@@ -14,6 +14,7 @@ struct NewsServices {
     func fetchNews(completion: @escaping (NewsList?, Error?) -> ()) {
         guard let url = URL(string: getUrlString()) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            
             if let err = err {
                 completion(nil, err)
                 print("Failed to fetch courses:", err)
@@ -23,8 +24,10 @@ struct NewsServices {
             // check response
             
             guard let data = data else { return }
+            
             do {
                 let news = try JSONDecoder().decode(NewsList.self, from: data)
+                UserDefaults.standard.setNews(news, forKey: "News")
                 DispatchQueue.main.async {
                     completion(news, nil)
                 }
@@ -32,6 +35,10 @@ struct NewsServices {
                 print("Failed to decode:", jsonErr)
             }
         }.resume()
+    }
+    
+    func getCache() -> NewsList? {
+        return UserDefaults.standard.getNews(forKey: "News")
     }
     
     private func getUrlString() -> String {
