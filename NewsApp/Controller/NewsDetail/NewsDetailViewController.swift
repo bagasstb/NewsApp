@@ -48,8 +48,8 @@ class NewsDetailViewController: UIViewController {
         return IndexPath.init(item: index, section: 0)
     }
     
-    private func showFavSuccessAlert() {
-        let alert = UIAlertController(title: LocaleString.addedToFavorite, message: LocaleString.addedToFavoriteMessage, preferredStyle: UIAlertController.Style.alert)
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: LocaleString.ok, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -80,7 +80,17 @@ extension NewsDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     private func addToFavorite() {
-        NewsServices.shared.setFavoriteNews(news: newsModel[currentIndex])
-        showFavSuccessAlert()
+        let news = newsModel[currentIndex]
+        if let favorite = NewsServices.shared.getFavoriteNews() {
+            if favorite.results.contains(where: {$0.title == news.title }) {
+                showAlert(title: LocaleString.favoriteNews, message: LocaleString.favoriteNewsMessage)
+            } else {
+                NewsServices.shared.setFavoriteNews(news: news)
+                showAlert(title: LocaleString.addedToFavorite, message: LocaleString.addedToFavoriteMessage)
+            }
+        } else {
+            NewsServices.shared.setFavoriteNews(news: news)
+            showAlert(title: LocaleString.addedToFavorite, message: LocaleString.addedToFavoriteMessage)
+        }
     }
 }
