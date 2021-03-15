@@ -71,7 +71,8 @@ extension NewsDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     private func shareNews() {
-        if let url = URL(string: newsModel[currentIndex].url) {
+        let url = newsModel[currentIndex].url
+        if let url = URL(string: "nytapp://url=\(url)") {
             let items = [url]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
             self.present(ac, animated: true)

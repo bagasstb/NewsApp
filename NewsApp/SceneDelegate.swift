@@ -47,6 +47,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url =  URLContexts.first?.url {
+            
+            let urlString = url.absoluteString
+            let component = urlString.components(separatedBy: "=")
+            if let urlValue = component.last {
+                navigateToDetail(url: urlValue)
+            }
+        }
+    }
 
+    func navigateToDetail(url: String) {
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let detailPage = NewsDetailViewController()
+        if let newsList = NewsServices.shared.getCache() {
+            if let index = newsList.results.firstIndex(where: { $0.url == url }) {
+                detailPage.newsModel = newsList.results
+                detailPage.currentIndex = index
+                let navigation = self.window?.rootViewController as? UINavigationController
+                navigation?.pushViewController(detailPage, animated: true)
+            }
+        }
+    }
 }
 
