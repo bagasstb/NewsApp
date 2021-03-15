@@ -31,6 +31,15 @@ class ViewController: UIViewController {
     
     private func uiInit() {
         self.title = LocaleString.homeTitle
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(navigateToFavorite))
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func navigateToFavorite() {
+        if let navigation = self.navigationController {
+            let favoriteVC = FavoriteViewController()
+            navigation.pushViewController(favoriteVC, animated: true)
+        }
     }
     
     fileprivate func fetchCacheData () {
@@ -83,9 +92,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newsDetailVC = NewsDetailViewController()
         if let navigation = self.navigationController {
-//            let data = newsModel[indexPath.row]
+            let newsDetailVC = NewsDetailViewController()
             newsDetailVC.title = LocaleString.newsDetail
             newsDetailVC.newsModel = self.newsModel
             newsDetailVC.currentIndex = indexPath.row

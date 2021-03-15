@@ -42,8 +42,13 @@ struct NewsServices {
     }
     
     func setFavoriteNews(news: News) {
-        let newsList = NewsList(results: [news])
-        UserDefaults.standard.setNews(newsList, forKey: "FavNews")
+        if var currentFav = getFavoriteNews() {
+            currentFav.results.append(news)
+            UserDefaults.standard.setNews(currentFav, forKey: "FavNews")
+        } else {
+            let news = NewsList(results: [news])
+            UserDefaults.standard.setNews(news, forKey: "FavNews")
+        }
     }
     
     func getFavoriteNews() -> NewsList? {

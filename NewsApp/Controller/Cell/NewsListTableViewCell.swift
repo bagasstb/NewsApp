@@ -20,7 +20,7 @@ class NewsListTableViewCell: UITableViewCell {
     }
 
     private func setUI() {
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         dateLabel.font = UIFont.systemFont(ofSize: 12)
     }
     

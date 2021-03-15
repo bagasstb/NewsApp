@@ -12,6 +12,7 @@ struct LocaleString {
     static let homeTitle = "New York Times"
     static let dataNotFound = "No News Found"
     static let networkError = "Network Error"
+    static let dataNotFoundMessage = "You have no favorite news, please add one"
     static let addedToFavorite = "Added to Favorite"
     static let addedToFavoriteMessage = "This news has been added to Favorite"
     static let networkErrorMessage = "Unable to contact the server"

@@ -7,7 +7,7 @@
 
 struct NewsList: Decodable, Encodable {
     
-    let results: [News]
+    var results: [News]
 }
 
 struct News: Decodable, Encodable {
