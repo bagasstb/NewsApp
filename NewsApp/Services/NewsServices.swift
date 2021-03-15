@@ -41,6 +41,15 @@ struct NewsServices {
         return UserDefaults.standard.getNews(forKey: "News")
     }
     
+    func setFavoriteNews(news: News) {
+        let newsList = NewsList(results: [news])
+        UserDefaults.standard.setNews(newsList, forKey: "FavNews")
+    }
+    
+    func getFavoriteNews() -> NewsList? {
+        return UserDefaults.standard.getNews(forKey: "FavNews")
+    }
+    
     private func getUrlString() -> String {
         if let apiKey = ApiKey.getApiKey() {
             return NewsRoutes.shared.getNews(apiKey: apiKey)

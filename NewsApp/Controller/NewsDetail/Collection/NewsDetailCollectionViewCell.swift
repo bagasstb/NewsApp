@@ -11,13 +11,15 @@ import Kingfisher
 class NewsDetailCollectionViewCell: UICollectionViewCell {
 
     static let cellIdentifier = "newsDetailCell"
-    private var vc: UIViewController? = nil
+    private var shareAction: (()->Void)? = nil
+    private var favoriteAction: (()->Void)? = nil
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var addToFavoriteButton: UIButton!
     
     private var news: NewsDetailViewModel? = nil {
         didSet {
@@ -46,16 +48,21 @@ class NewsDetailCollectionViewCell: UICollectionViewCell {
         return UINib(nibName: "NewsDetailCollectionViewCell", bundle: nil)
     }
     
-    public func setData(with: NewsDetailViewModel, vc: UIViewController) {
+    public func setData(with: NewsDetailViewModel, shareActionHandler: (()->Void)?, favActionHandler: (()->Void)?) {
         self.news = with
-        self.vc = vc
+        self.shareAction = shareActionHandler
+        self.favoriteAction = favActionHandler
     }
     
     @IBAction func shareButtonTouchUpInside(_ sender: UIButton) {
-        if let urlString = news?.url, let url = URL(string: urlString) {
-            let items = [url]
-            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-            vc?.present(ac, animated: true)
+        if let handler = shareAction {
+            handler()
+        }
+    }
+    
+    @IBAction func addToFavoriteTouchUpInside(_ sender: UIButton) {
+        if let handler = favoriteAction {
+            handler()
         }
     }
     

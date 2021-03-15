@@ -11,15 +11,12 @@ class NewsDetailViewController: UIViewController {
 
     @IBOutlet weak var newsDetailCollectionView: UICollectionView!
     
-    var newsDetailViewModel: NewsDetailViewModel?
     var currentIndex: Int = 0
     var newsModel: [News] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableInit()
-        print("Current index \(currentIndex)")
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +47,13 @@ class NewsDetailViewController: UIViewController {
     private func getIndex(index: Int) -> IndexPath {
         return IndexPath.init(item: index, section: 0)
     }
+    
+    private func showFavSuccessAlert() {
+        let alert = UIAlertController(title: LocaleString.addedToFavorite, message: LocaleString.addedToFavoriteMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: LocaleString.ok, style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension NewsDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -62,8 +66,20 @@ extension NewsDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsDetailCollectionViewCell.cellIdentifier, for: indexPath) as! NewsDetailCollectionViewCell
         let news = newsModel[indexPath.row]
         let newsDetailViewModel = NewsDetailViewModel(news: news)
-        cell.setData(with: newsDetailViewModel, vc: self)
+        cell.setData(with: newsDetailViewModel, shareActionHandler: shareNews, favActionHandler: addToFavorite)
         return cell
     }
     
+    private func shareNews() {
+        if let url = URL(string: newsModel[currentIndex].url) {
+            let items = [url]
+            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            self.present(ac, animated: true)
+        }
+    }
+    
+    private func addToFavorite() {
+        NewsServices.shared.setFavoriteNews(news: newsModel[currentIndex])
+        showFavSuccessAlert()
+    }
 }
