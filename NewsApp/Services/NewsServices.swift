@@ -8,23 +8,21 @@
 import Foundation
 
 struct NewsServices {
-    
+
     static let shared = NewsServices()
-    
-    func fetchNews(completion: @escaping (NewsList?, Error?) -> ()) {
+
+    func fetchNews(completion: @escaping (NewsList?, Error?) -> Void) {
         guard let url = URL(string: getUrlString()) else { return }
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            
+        URLSession.shared.dataTask(with: url) { (data, _, err) in
+
             if let err = err {
                 completion(nil, err)
                 print("Failed to fetch courses:", err)
                 return
             }
-            
             // check response
-            
             guard let data = data else { return }
-            
+
             do {
                 let news = try JSONDecoder().decode(NewsList.self, from: data)
                 UserDefaults.standard.setNews(news, forKey: "News")
@@ -36,11 +34,11 @@ struct NewsServices {
             }
         }.resume()
     }
-    
+
     func getCache() -> NewsList? {
         return UserDefaults.standard.getNews(forKey: "News")
     }
-    
+
     func setFavoriteNews(news: News) {
         if var currentFav = getFavoriteNews() {
             currentFav.results.append(news)
@@ -50,16 +48,16 @@ struct NewsServices {
             UserDefaults.standard.setNews(news, forKey: "FavNews")
         }
     }
-    
+
     func getFavoriteNews() -> NewsList? {
         return UserDefaults.standard.getNews(forKey: "FavNews")
     }
-    
+
     private func getUrlString() -> String {
         if let apiKey = ApiKey.getApiKey() {
             return NewsRoutes.shared.getNews(apiKey: apiKey)
         } else {
-            /// put your own api key
+            // put your own api key
             return NewsRoutes.shared.getNews(apiKey: "")
         }
     }

@@ -8,8 +8,9 @@
 import UIKit
 
 extension UIButton {
-    
+
     func makeCircleCorner() {
         self.layer.cornerRadius = self.frame.height / 2
     }
+
 }

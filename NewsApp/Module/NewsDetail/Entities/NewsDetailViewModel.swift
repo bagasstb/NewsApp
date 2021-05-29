@@ -8,18 +8,18 @@
 import Foundation
 
 struct NewsDetailViewModel {
-    
+
     let title: String
     let description: String
     let photo: String?
     let caption: String?
     let url: String
-    
+
     init(news: News) {
         self.title = news.title
         self.description = news.abstract
         self.url = news.url
-        
+
         if let index = news.multimedia.firstIndex(where: {$0.format == ImageType.mediumThreeByTwo210.rawValue }) {
             let multimedia = news.multimedia[index]
             self.photo = multimedia.url
@@ -28,7 +28,7 @@ struct NewsDetailViewModel {
             } else {
                 self.caption = "\(multimedia.caption) by, \(multimedia.copyright)"
             }
-            
+
         } else {
             self.photo = nil
             self.caption = nil
@@ -37,10 +37,11 @@ struct NewsDetailViewModel {
 }
 
 enum ImageType: String {
+
     case superJumbo = "superJumbo"
     case standardThumbnail = "Standard Thumbnail"
     case thumbLarge = "thumbLarge"
     case mediumThreeByTwo210 = "mediumThreeByTwo210"
     case normal = "Normal"
-    
+
 }

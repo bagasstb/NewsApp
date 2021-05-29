@@ -6,12 +6,13 @@
 //
 
 struct NewsList: Decodable, Encodable {
-    
+
     var results: [News]
+
 }
 
 struct News: Decodable, Encodable {
-    
+
     let title: String
     let abstract: String
     let section: String
@@ -21,7 +22,7 @@ struct News: Decodable, Encodable {
 }
 
 struct Multimedia: Decodable, Encodable {
-    
+
     let url: String
     let format: String
     let caption: String

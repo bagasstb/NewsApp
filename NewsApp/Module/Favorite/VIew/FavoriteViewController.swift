@@ -11,7 +11,7 @@ class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var favTableView: UITableView!
     private var newsModel: [News] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewInit()
@@ -28,30 +28,35 @@ class FavoriteViewController: UIViewController {
         if let favorite = NewsServices.shared.getFavoriteNews() {
             self.newsModel = favorite.results
         } else {
-            
+            // handle no data
         }
     }
-    
+
     private func showEmptyAlert() {
-        let alert = UIAlertController(title: LocaleString.dataNotFound, message: LocaleString.dataNotFoundMessage, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: LocaleString.ok, style: UIAlertAction.Style.default, handler: nil))
+        let alert = UIAlertController(title: LocaleString.dataNotFound,
+                                      message: LocaleString.dataNotFoundMessage,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: LocaleString.okay, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         newsModel.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsListTableViewCell.cellIdentifier, for: indexPath) as! NewsListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsListTableViewCell.cellIdentifier,
+                                                       for: indexPath) as? NewsListTableViewCell else {
+            return UITableViewCell()
+        }
         let newsViewModel = NewsViewModel(news: newsModel[indexPath.row])
         cell.setData(with: newsViewModel)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newsDetailVC = NewsDetailViewController()
         if let navigation = self.navigationController {
@@ -61,5 +66,5 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
             navigation.pushViewController(newsDetailVC, animated: true)
         }
     }
-    
+
 }

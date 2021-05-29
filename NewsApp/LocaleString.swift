@@ -8,7 +8,7 @@
 import Foundation
 
 struct LocaleString {
-    
+
     static let homeTitle = "New York Times"
     static let dataNotFound = "No News Found"
     static let networkError = "Network Error"
@@ -18,6 +18,6 @@ struct LocaleString {
     static let favoriteNewsMessage = "This news has been added to Favorite"
     static let addedToFavoriteMessage = "This news has been added to Favorite"
     static let networkErrorMessage = "Unable to contact the server"
-    static let ok = "Ok"
+    static let okay = "Ok"
     static let newsDetail = "News Detail"
 }

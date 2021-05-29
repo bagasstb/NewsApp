@@ -8,7 +8,7 @@
 import Foundation
 
 extension UserDefaults {
-    
+
     func getNews(forKey defaultName: String) -> NewsList? {
         guard let data = data(forKey: defaultName) else { return nil }
         do {
@@ -20,5 +20,5 @@ extension UserDefaults {
         let data = try? JSONEncoder().encode(value)
         set(data, forKey: defaultName)
     }
-    
+
 }
