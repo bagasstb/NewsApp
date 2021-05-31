@@ -13,13 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var infoLabel: UILabel!
     private var newsModel: [News] = []
+    var presenter: HomePresenter = HomePresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewInit()
         uiInit()
-        fetchCacheData()
-        fetchData()
+        presenter.homeView = self
+        presenter.viewDidLoad()
+        presenter.fetchNews()
     }
 
     private func tableViewInit() {
@@ -44,35 +46,6 @@ class ViewController: UIViewController {
         }
     }
 
-    fileprivate func fetchCacheData () {
-        if let news = NewsServices.shared.getCache() {
-            self.newsModel = news.results
-            self.newsTableView.reloadData()
-        }
-    }
-
-    fileprivate func fetchData() {
-        newsTableView.isHidden = true
-        activityIndicatorView.startAnimating()
-        NewsServices.shared.fetchNews { [weak self] (newsList, error) in
-            guard let strongSelf = self else { return }
-            strongSelf.activityIndicatorView.stopAnimating()
-            strongSelf.newsTableView.isHidden = false
-            if error != nil {
-                strongSelf.showErrorAlert()
-            } else {
-                if let results = newsList?.results {
-                    if results.count == 0 {
-                        strongSelf.infoLabel.text = LocaleString.dataNotFound
-                    } else {
-                        strongSelf.newsModel = results
-                        strongSelf.newsTableView.reloadData()
-                    }
-                }
-            }
-        }
-    }
-
     private func showErrorAlert() {
         let alert = UIAlertController(title: LocaleString.networkError,
                                       message: LocaleString.networkErrorMessage,
@@ -80,6 +53,24 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: LocaleString.okay, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+extension ViewController: HomePresenterProtocol {
+    
+    func updateNewsCacheList(news: NewsList?, errorMessage: String?) {
+        if let results = news?.results {
+            self.newsModel = results
+            self.newsTableView.reloadData()
+        }
+    }
+    
+    func updateNewsList(news: NewsList?, errorMessage: String?) {
+        if let results = news?.results {
+            self.newsModel = results
+            self.newsTableView.reloadData()
+        }
+    }
+
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -99,13 +90,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let navigation = self.navigationController {
-            let newsDetailVC = NewsDetailViewController()
-            newsDetailVC.title = LocaleString.newsDetail
-            newsDetailVC.newsModel = self.newsModel
-            newsDetailVC.currentIndex = indexPath.row
-            navigation.pushViewController(newsDetailVC, animated: true)
-        }
+        presenter.didNewsSelect(news: newsModel, index: indexPath.row, title: LocaleString.newsDetail)
     }
 
 }
