@@ -11,8 +11,8 @@ struct NewsViewModel {
     let abstract: String
     let section: String
     let url: String
+    
     // Dependency Injection
-
     init(news: News) {
         self.title = news.title
         self.abstract = news.abstract

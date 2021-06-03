@@ -11,7 +11,9 @@ protocol HomeViewProtocol {
     func viewDidLoad()
     func fetchNews()
     func fetchNewsCache()
-    func didNewsSelect(news: [News], index: Int, title: String)
+    func didNewsSelect(at index: Int, title: String)
+    func news(at index: Int) -> NewsViewModel?
+    func newsCount() -> Int
 }
 
 protocol HomeInteractorInputProtocol {
@@ -20,13 +22,13 @@ protocol HomeInteractorInputProtocol {
 }
 
 protocol HomeInteractorOutputProtocol {
-    func newsDidFetch(news: NewsList?, errorMessage: String?)
+    func newsDidFetch(news: NewsList?)
+    func showNewsError(message: String?)
     func newsCacheDidFetch(news: NewsList?, errorMessage: String?)
 }
 
-protocol HomePresenterProtocol {
-    func updateNewsList(news: NewsList?, errorMessage: String?)
-    func updateNewsCacheList(news: NewsList?, errorMessage: String?)
+protocol HomeViewInterface {
+    func updateNewsList()
 }
 
 protocol HomeRouterProtocol {

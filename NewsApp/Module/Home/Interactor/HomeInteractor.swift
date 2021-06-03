@@ -15,9 +15,9 @@ class HomeInteractor: HomeInteractorInputProtocol {
         NewsServices.shared.fetchNews { [weak self] (newsList, error) in
             guard let `self` = self else { return }
             if error != nil {
-                self.presenter?.newsDidFetch(news: nil, errorMessage: error.debugDescription)
+                self.presenter?.showNewsError(message: error.debugDescription)
             } else {
-                self.presenter?.newsDidFetch(news: newsList, errorMessage: nil)
+                self.presenter?.newsDidFetch(news: newsList)
             }
         }
     }

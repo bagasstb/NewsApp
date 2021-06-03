@@ -8,10 +8,11 @@
 import Foundation
 
 class HomePresenter: HomeViewProtocol {
-
+    
     var homeInteractor: HomeInteractor?
     var homeView: ViewController?
     var homeRouter: HomeRouter?
+    var newsModel: [News] = []
     
     func viewDidLoad() {
         HomeRouter.loadHomePageComponents(with: self)
@@ -27,24 +28,43 @@ class HomePresenter: HomeViewProtocol {
         homeInteractor?.fetchNewsCache()
     }
     
-    func didNewsSelect(news: [News], index: Int, title: String) {
+    func didNewsSelect(at index: Int, title: String) {
         if let homeView = homeView {
-            homeRouter?.navigateToNewsDetail(from: homeView, news: news, index: index, title: title)
+            homeRouter?.navigateToNewsDetail(from: homeView, news: newsModel, at: index, title: title)
         }
     }
     
+    // MARK: - Logic
+    func news(at index: Int) -> NewsViewModel? {
+        return NewsViewModel(news: newsModel[index])
+    }
+    
+    func newsCount() -> Int {
+        return newsModel.count
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
     
-    func newsCacheDidFetch(news: NewsList?, errorMessage: String?) {
-        homeView?.updateNewsCacheList(news: news, errorMessage: "no data")
-    }
-
-    func newsDidFetch(news: NewsList?, errorMessage: String?) {
+    func newsDidFetch(news: NewsList?) {
         homeView?.activityIndicatorView.stopAnimating()
         homeView?.newsTableView.isHidden = false
-        homeView?.updateNewsList(news: news, errorMessage: errorMessage)
+        if let news = news?.results {
+            self.newsModel = news
+            homeView?.newsTableView.reloadData()
+        }
+    }
+    
+    func showNewsError(message: String?) {
+        homeView?.activityIndicatorView.stopAnimating()
+        homeView?.newsTableView.isHidden = false
+        homeView?.showErrorAlert(title: LocaleString.dataNotFound, message: message ?? "")
+    }
+    
+    func newsCacheDidFetch(news: NewsList?, errorMessage: String?) {
+        homeView?.activityIndicatorView.stopAnimating()
+        homeView?.newsTableView.isHidden = false
+        homeView?.updateNewsList()
     }
 
 }

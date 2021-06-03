@@ -15,7 +15,7 @@ class HomeRouter {
         presenter.homeInteractor?.presenter = presenter
     }
     
-    func navigateToNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String) {
+    func navigateToNewsDetail(from viewController: UIViewController, news: [News], at index: Int, title: String) {
         if let navigation = viewController.navigationController {
             let newsDetailVC = NewsDetailViewController()
             newsDetailVC.title = LocaleString.newsDetail
@@ -29,7 +29,7 @@ class HomeRouter {
 extension HomeRouter: HomeRouterProtocol {
     
     func showNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String) {
-        navigateToNewsDetail(from: viewController, news: news, index: index, title: title)
+        navigateToNewsDetail(from: viewController, news: news, at: index, title: title)
     }
     
 }

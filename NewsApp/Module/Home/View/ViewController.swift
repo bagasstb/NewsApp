@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var infoLabel: UILabel!
-    private var newsModel: [News] = []
     var presenter: HomePresenter = HomePresenter()
 
     override func viewDidLoad() {
@@ -45,30 +44,13 @@ class ViewController: UIViewController {
             navigation.pushViewController(favoriteVC, animated: true)
         }
     }
-
-    private func showErrorAlert() {
-        let alert = UIAlertController(title: LocaleString.networkError,
-                                      message: LocaleString.networkErrorMessage,
-                                      preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: LocaleString.okay, style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+    
 }
 
-extension ViewController: HomePresenterProtocol {
+extension ViewController: HomeViewInterface {
     
-    func updateNewsCacheList(news: NewsList?, errorMessage: String?) {
-        if let results = news?.results {
-            self.newsModel = results
-            self.newsTableView.reloadData()
-        }
-    }
-    
-    func updateNewsList(news: NewsList?, errorMessage: String?) {
-        if let results = news?.results {
-            self.newsModel = results
-            self.newsTableView.reloadData()
-        }
+    func updateNewsList() {
+        self.newsTableView.reloadData()
     }
 
 }
@@ -76,7 +58,7 @@ extension ViewController: HomePresenterProtocol {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        newsModel.count
+        presenter.newsCount()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,13 +66,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                                                        for: indexPath) as? NewsListTableViewCell else {
             return UITableViewCell()
         }
-        let newsViewModel = NewsViewModel(news: newsModel[indexPath.row])
-        cell.setData(with: newsViewModel)
+        if let news = presenter.news(at: indexPath.row) {
+            cell.setData(with: news)
+        }
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didNewsSelect(news: newsModel, index: indexPath.row, title: LocaleString.newsDetail)
+        presenter.didNewsSelect(at: indexPath.row, title: LocaleString.newsDetail)
     }
 
 }
