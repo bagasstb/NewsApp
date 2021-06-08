@@ -24,12 +24,18 @@ class HomeRouter {
             navigation.pushViewController(newsDetailVC, animated: true)
         }
     }
+    
 }
 
 extension HomeRouter: HomeRouterProtocol {
+    
+    func showErrorAlert(from viewController: UIViewController, with message: String) {
+        viewController.showErrorAlert(title: LocaleString.dataNotFound, message: message)
+    }
     
     func showNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String) {
         navigateToNewsDetail(from: viewController, news: news, at: index, title: title)
     }
     
+
 }

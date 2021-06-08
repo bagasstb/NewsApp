@@ -33,4 +33,5 @@ protocol HomeViewInterface {
 
 protocol HomeRouterProtocol {
     func showNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String)
+    func showErrorAlert(from viewController: UIViewController, with message: String)
 }

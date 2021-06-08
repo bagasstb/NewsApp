@@ -34,6 +34,11 @@ class HomePresenter: HomeViewProtocol {
         }
     }
     
+    private func showTableView() {
+        homeView?.activityIndicatorView.stopAnimating()
+        homeView?.newsTableView.isHidden = false
+    }
+    
     // MARK: - Logic
     func news(at index: Int) -> NewsViewModel? {
         return NewsViewModel(news: newsModel[index])
@@ -47,8 +52,7 @@ class HomePresenter: HomeViewProtocol {
 extension HomePresenter: HomeInteractorOutputProtocol {
     
     func newsDidFetch(news: NewsList?) {
-        homeView?.activityIndicatorView.stopAnimating()
-        homeView?.newsTableView.isHidden = false
+        showTableView()
         if let news = news?.results {
             self.newsModel = news
             homeView?.newsTableView.reloadData()
@@ -56,14 +60,14 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func showNewsError(message: String?) {
-        homeView?.activityIndicatorView.stopAnimating()
-        homeView?.newsTableView.isHidden = false
-        homeView?.showErrorAlert(title: LocaleString.dataNotFound, message: message ?? "")
+        showTableView()
+        if let homeView = homeView {
+            homeRouter?.showErrorAlert(from: homeView, with: message ?? "")
+        }
     }
     
     func newsCacheDidFetch(news: NewsList?, errorMessage: String?) {
-        homeView?.activityIndicatorView.stopAnimating()
-        homeView?.newsTableView.isHidden = false
+        showTableView()
         homeView?.updateNewsList()
     }
 
