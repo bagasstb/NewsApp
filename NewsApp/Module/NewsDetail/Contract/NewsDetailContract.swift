@@ -5,4 +5,6 @@
 //  Created by bagasstb on 07/06/21.
 //
 
-import Foundation
+protocol NewsDetailView {
+    
+}

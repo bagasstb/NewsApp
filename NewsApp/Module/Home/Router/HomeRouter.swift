@@ -25,9 +25,22 @@ class HomeRouter {
         }
     }
     
+    func navigateToFavorite(from navigationController: UINavigationController) {
+        let favoriteVC = FavoriteViewController()
+        navigationController.pushViewController(favoriteVC, animated: true)
+    }
+    
 }
 
 extension HomeRouter: HomeRouterProtocol {
+    
+    func showFovorite(from navigationController: UINavigationController) {
+        navigateToFavorite(from: navigationController)
+    }
+    
+    func showLogin() {
+        
+    }
     
     func showErrorAlert(from viewController: UIViewController, with message: String) {
         viewController.showErrorAlert(title: LocaleString.dataNotFound, message: message)
@@ -36,6 +49,5 @@ extension HomeRouter: HomeRouterProtocol {
     func showNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String) {
         navigateToNewsDetail(from: viewController, news: news, at: index, title: title)
     }
-    
 
 }

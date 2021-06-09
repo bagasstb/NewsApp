@@ -11,7 +11,8 @@ protocol HomeViewProtocol {
     func viewDidLoad()
     func fetchNews()
     func fetchNewsCache()
-    func didNewsSelect(at index: Int, title: String)
+    func didSelectNews(at index: Int, title: String)
+    func favoriteTouchUpInside()
     func news(at index: Int) -> NewsViewModel?
     func newsCount() -> Int
 }
@@ -34,4 +35,6 @@ protocol HomeViewInterface {
 protocol HomeRouterProtocol {
     func showNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String)
     func showErrorAlert(from viewController: UIViewController, with message: String)
+    func showFovorite(from navigationController: UINavigationController)
+    func showLogin()
 }

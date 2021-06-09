@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  NewsApp
 //
-//  Created by bagasstb on 14/03/21.
+//  Created by bagasstb on 09/06/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -31,23 +31,28 @@ class ViewController: UIViewController {
     }
 
     private func uiInit() {
+        setNavigationItem()
         self.title = LocaleString.homeTitle
-        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks,
+    }
+
+    private func setNavigationItem() {
+        let rightItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks,
                                      target: self,
                                      action: #selector(navigateToFavorite))
-        navigationItem.rightBarButtonItem = button
-    }
-
-    @objc private func navigateToFavorite() {
-        if let navigation = self.navigationController {
-            let favoriteVC = FavoriteViewController()
-            navigation.pushViewController(favoriteVC, animated: true)
-        }
+        navigationItem.rightBarButtonItem = rightItem
+        
+        let leftItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+                                     target: self,
+                                     action: #selector(navigateToFavorite))
+        navigationItem.leftBarButtonItem = leftItem
     }
     
+    @objc private func navigateToFavorite() {
+        presenter.favoriteTouchUpInside()
+    }
 }
 
-extension ViewController: HomeViewInterface {
+extension HomeViewController: HomeViewInterface {
     
     func updateNewsList() {
         self.newsTableView.reloadData()
@@ -55,7 +60,7 @@ extension ViewController: HomeViewInterface {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.newsCount()
@@ -74,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didNewsSelect(at: indexPath.row, title: LocaleString.newsDetail)
+        presenter.didSelectNews(at: indexPath.row, title: LocaleString.newsDetail)
     }
 
 }

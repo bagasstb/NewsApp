@@ -10,7 +10,7 @@ import Foundation
 class HomePresenter: HomeViewProtocol {
     
     var homeInteractor: HomeInteractor?
-    var homeView: ViewController?
+    var homeView: HomeViewController?
     var homeRouter: HomeRouter?
     var newsModel: [News] = []
     
@@ -28,7 +28,7 @@ class HomePresenter: HomeViewProtocol {
         homeInteractor?.fetchNewsCache()
     }
     
-    func didNewsSelect(at index: Int, title: String) {
+    func didSelectNews(at index: Int, title: String) {
         if let homeView = homeView {
             homeRouter?.navigateToNewsDetail(from: homeView, news: newsModel, at: index, title: title)
         }
@@ -50,6 +50,12 @@ class HomePresenter: HomeViewProtocol {
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
+    
+    func favoriteTouchUpInside() {
+        if let navigation = homeView?.navigationController {
+            homeRouter?.showFovorite(from: navigation)
+        }
+    }
     
     func newsDidFetch(news: NewsList?) {
         showTableView()
