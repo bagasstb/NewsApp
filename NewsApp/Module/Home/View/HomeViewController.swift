@@ -43,12 +43,16 @@ class HomeViewController: UIViewController {
         
         let leftItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                      target: self,
-                                     action: #selector(navigateToFavorite))
+                                     action: #selector(navigateToLogin))
         navigationItem.leftBarButtonItem = leftItem
     }
     
     @objc private func navigateToFavorite() {
         presenter.favoriteTouchUpInside()
+    }
+    
+    @objc private func navigateToLogin() {
+        presenter.loginTouchUpInside()
     }
 }
 

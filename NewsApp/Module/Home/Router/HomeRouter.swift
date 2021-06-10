@@ -30,6 +30,10 @@ class HomeRouter {
         navigationController.pushViewController(favoriteVC, animated: true)
     }
     
+    func navigateToLogin(from viewController: UIViewController) {
+        let loginVC = LoginWireframe().setupNavigationController()
+        viewController.present(loginVC, animated: true, completion: nil)
+    }
 }
 
 extension HomeRouter: HomeRouterProtocol {
@@ -38,8 +42,8 @@ extension HomeRouter: HomeRouterProtocol {
         navigateToFavorite(from: navigationController)
     }
     
-    func showLogin() {
-        
+    func showLogin(from viewController: UIViewController) {
+        navigateToLogin(from: viewController)
     }
     
     func showErrorAlert(from viewController: UIViewController, with message: String) {

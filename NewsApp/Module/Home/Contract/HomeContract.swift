@@ -36,5 +36,5 @@ protocol HomeRouterProtocol {
     func showNewsDetail(from viewController: UIViewController, news: [News], index: Int, title: String)
     func showErrorAlert(from viewController: UIViewController, with message: String)
     func showFovorite(from navigationController: UINavigationController)
-    func showLogin()
+    func showLogin(from viewController: UIViewController)
 }

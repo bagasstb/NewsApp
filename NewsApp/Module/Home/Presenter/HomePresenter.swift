@@ -34,6 +34,18 @@ class HomePresenter: HomeViewProtocol {
         }
     }
     
+    func favoriteTouchUpInside() {
+        if let navigation = homeView?.navigationController {
+            homeRouter?.showFovorite(from: navigation)
+        }
+    }
+    
+    func loginTouchUpInside() {
+        if let view = homeView?.navigationController {
+            homeRouter?.showLogin(from: view)
+        }
+    }
+    
     private func showTableView() {
         homeView?.activityIndicatorView.stopAnimating()
         homeView?.newsTableView.isHidden = false
@@ -50,12 +62,6 @@ class HomePresenter: HomeViewProtocol {
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
-    
-    func favoriteTouchUpInside() {
-        if let navigation = homeView?.navigationController {
-            homeRouter?.showFovorite(from: navigation)
-        }
-    }
     
     func newsDidFetch(news: NewsList?) {
         showTableView()

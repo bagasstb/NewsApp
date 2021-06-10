@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2248AAB06ACE265D0FB8F495 /* Pods_NewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2201D10D115A7F734F3B3C9 /* Pods_NewsAppUITests.framework */; };
 		88A198ECDE380D61D5950C62 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECB390AC28F6A5971A085D8 /* Pods_NewsApp.framework */; };
+		B8993E5126721E6800A7AFD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E4F26721E6800A7AFD8 /* LoginViewController.swift */; };
+		B8993E5226721E6800A7AFD8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8993E5026721E6800A7AFD8 /* LoginViewController.xib */; };
+		B8993E5426721ED800A7AFD8 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5326721ED800A7AFD8 /* LoginInteractor.swift */; };
+		B8993E5626721EEE00A7AFD8 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5526721EEE00A7AFD8 /* LoginPresenter.swift */; };
+		B8993E5826721FAF00A7AFD8 /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5726721FAF00A7AFD8 /* LoginContract.swift */; };
+		B8993E5A2672200100A7AFD8 /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E592672200100A7AFD8 /* LoginWireframe.swift */; };
 		D00A273A267094DD0015D59D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A2738267094DC0015D59D /* HomeViewController.swift */; };
 		D00A273B267094DD0015D59D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00A2739267094DC0015D59D /* HomeViewController.xib */; };
 		D04A23C0266E1507004DFC15 /* NewsDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A23BF266E1507004DFC15 /* NewsDetailContract.swift */; };
@@ -76,6 +82,12 @@
 		68F8B5B9038A805564211A16 /* Pods-NewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.release.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		A2201D10D115A7F734F3B3C9 /* Pods_NewsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AFE13E8BA6624F32E782BD /* Pods-NewsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-NewsAppUITests/Pods-NewsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8993E4F26721E6800A7AFD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B8993E5026721E6800A7AFD8 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B8993E5326721ED800A7AFD8 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		B8993E5526721EEE00A7AFD8 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		B8993E5726721FAF00A7AFD8 /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
+		B8993E592672200100A7AFD8 /* LoginWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireframe.swift; sourceTree = "<group>"; };
 		C05938C1310513A3485781C0 /* Pods-NewsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-NewsAppUITests/Pods-NewsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CECB390AC28F6A5971A085D8 /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00A2738267094DC0015D59D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +180,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B8993E4D26721DEC00A7AFD8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B8993E4E26721E2200A7AFD8 /* View */,
+				B8993E5326721ED800A7AFD8 /* LoginInteractor.swift */,
+				B8993E5526721EEE00A7AFD8 /* LoginPresenter.swift */,
+				B8993E5726721FAF00A7AFD8 /* LoginContract.swift */,
+				B8993E592672200100A7AFD8 /* LoginWireframe.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B8993E4E26721E2200A7AFD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8993E4F26721E6800A7AFD8 /* LoginViewController.swift */,
+				B8993E5026721E6800A7AFD8 /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B9E43A830A15D5CA3B55B279 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,61 +214,6 @@
 				C05938C1310513A3485781C0 /* Pods-NewsAppUITests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		D00A273C2670C1A90015D59D /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				D00A27422670C2730015D59D /* Contract */,
-				D00A27412670C2500015D59D /* Router */,
-				D00A27402670C23E0015D59D /* Entity */,
-				D00A273F2670C2330015D59D /* Presenter */,
-				D00A273E2670C22B0015D59D /* Interactor */,
-				D00A273D2670C2250015D59D /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		D00A273D2670C2250015D59D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D00A273E2670C22B0015D59D /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		D00A273F2670C2330015D59D /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		D00A27402670C23E0015D59D /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		D00A27412670C2500015D59D /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		D00A27422670C2730015D59D /* Contract */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Contract;
 			sourceTree = "<group>";
 		};
 		D04A23C726707F70004DFC15 /* Tab */ = {
@@ -413,7 +391,7 @@
 		D09FB129266114BC00A923FC /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				D00A273C2670C1A90015D59D /* Login */,
+				B8993E4D26721DEC00A7AFD8 /* Login */,
 				D04A23C726707F70004DFC15 /* Tab */,
 				D09FB13026616F6A00A923FC /* Favorite */,
 				D09FB1282661149B00A923FC /* NewsDetail */,
@@ -666,6 +644,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8993E5226721E6800A7AFD8 /* LoginViewController.xib in Resources */,
 				D0C27A3925FE757600F33BFD /* NewsDetailCollectionViewCell.xib in Resources */,
 				D04A995225FE0E3E000822EF /* LaunchScreen.storyboard in Resources */,
 				D04A23CB26707FD9004DFC15 /* TabViewController.xib in Resources */,
@@ -802,6 +781,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8993E5126721E6800A7AFD8 /* LoginViewController.swift in Sources */,
 				D0C27A3825FE757600F33BFD /* NewsDetailCollectionViewCell.swift in Sources */,
 				D04A23C2266E151B004DFC15 /* NewsDetailRouter.swift in Sources */,
 				D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */,
@@ -817,7 +797,10 @@
 				D04A23C0266E1507004DFC15 /* NewsDetailContract.swift in Sources */,
 				D00A273A267094DD0015D59D /* HomeViewController.swift in Sources */,
 				D04B023B26676BCF00660087 /* AlertUtils.swift in Sources */,
+				B8993E5426721ED800A7AFD8 /* LoginInteractor.swift in Sources */,
 				D04A998225FE10C4000822EF /* NewsListTableViewCell.swift in Sources */,
+				B8993E5626721EEE00A7AFD8 /* LoginPresenter.swift in Sources */,
+				B8993E5826721FAF00A7AFD8 /* LoginContract.swift in Sources */,
 				D074EFE025FE11AD009B96E8 /* News.swift in Sources */,
 				D0C27ADE25FF8F9700F33BFD /* ButtonUtils.swift in Sources */,
 				D04A23C6266F292F004DFC15 /* NewsDetailInteractor.swift in Sources */,
@@ -828,6 +811,7 @@
 				D0C27AE325FFA29D00F33BFD /* UserDefaultUtils.swift in Sources */,
 				D0C27A3E25FE7CD300F33BFD /* NewsDetailViewModel.swift in Sources */,
 				D04A994825FE0E3D000822EF /* SceneDelegate.swift in Sources */,
+				B8993E5A2672200100A7AFD8 /* LoginWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
