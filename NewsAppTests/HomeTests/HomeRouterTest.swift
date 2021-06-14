@@ -18,7 +18,7 @@ class HomeRouterTest: XCTestCase {
     }
     
     func testNewsDetailPresented() {
-        router?.navigateToNewsDetail(from: ViewController(), news: [], at: 0, title: "Hello")
+        router?.navigateToNewsDetail(from: HomeViewController(), news: [], at: 0, title: "Hello")
     }
     
     override func setUpWithError() throws {

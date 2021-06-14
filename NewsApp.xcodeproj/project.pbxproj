@@ -15,6 +15,14 @@
 		B8993E5626721EEE00A7AFD8 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5526721EEE00A7AFD8 /* LoginPresenter.swift */; };
 		B8993E5826721FAF00A7AFD8 /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5726721FAF00A7AFD8 /* LoginContract.swift */; };
 		B8993E5A2672200100A7AFD8 /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E592672200100A7AFD8 /* LoginWireframe.swift */; };
+		B8993E5D2676EFCB00A7AFD8 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5C2676EFCB00A7AFD8 /* Rule.swift */; };
+		B8993E5F2676F01700A7AFD8 /* RequiredRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5E2676F01700A7AFD8 /* RequiredRule.swift */; };
+		B8993E612676F10900A7AFD8 /* MinimumLengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E602676F10900A7AFD8 /* MinimumLengthRule.swift */; };
+		B8993E632676F1CB00A7AFD8 /* EmailRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E622676F1CB00A7AFD8 /* EmailRule.swift */; };
+		B8993E652676F1E400A7AFD8 /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E642676F1E400A7AFD8 /* PasswordRule.swift */; };
+		B8993E682676F56000A7AFD8 /* FieldValidateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E672676F56000A7AFD8 /* FieldValidateable.swift */; };
+		B8993E6C26772B9200A7AFD8 /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E6B26772B9200A7AFD8 /* NewsRouter.swift */; };
+		B8993E6F26773B8100A7AFD8 /* LoginPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E6E26773B8100A7AFD8 /* LoginPresenterTest.swift */; };
 		D00A273A267094DD0015D59D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A2738267094DC0015D59D /* HomeViewController.swift */; };
 		D00A273B267094DD0015D59D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00A2739267094DC0015D59D /* HomeViewController.xib */; };
 		D04A23C0266E1507004DFC15 /* NewsDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A23BF266E1507004DFC15 /* NewsDetailContract.swift */; };
@@ -88,6 +96,14 @@
 		B8993E5526721EEE00A7AFD8 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B8993E5726721FAF00A7AFD8 /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
 		B8993E592672200100A7AFD8 /* LoginWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireframe.swift; sourceTree = "<group>"; };
+		B8993E5C2676EFCB00A7AFD8 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		B8993E5E2676F01700A7AFD8 /* RequiredRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredRule.swift; sourceTree = "<group>"; };
+		B8993E602676F10900A7AFD8 /* MinimumLengthRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumLengthRule.swift; sourceTree = "<group>"; };
+		B8993E622676F1CB00A7AFD8 /* EmailRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRule.swift; sourceTree = "<group>"; };
+		B8993E642676F1E400A7AFD8 /* PasswordRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRule.swift; sourceTree = "<group>"; };
+		B8993E672676F56000A7AFD8 /* FieldValidateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidateable.swift; sourceTree = "<group>"; };
+		B8993E6B26772B9200A7AFD8 /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
+		B8993E6E26773B8100A7AFD8 /* LoginPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTest.swift; sourceTree = "<group>"; };
 		C05938C1310513A3485781C0 /* Pods-NewsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-NewsAppUITests/Pods-NewsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CECB390AC28F6A5971A085D8 /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00A2738267094DC0015D59D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +217,43 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B8993E5B2676EF9700A7AFD8 /* FieldValidator */ = {
+			isa = PBXGroup;
+			children = (
+				B8993E662676F50100A7AFD8 /* Rules */,
+				B8993E672676F56000A7AFD8 /* FieldValidateable.swift */,
+			);
+			path = FieldValidator;
+			sourceTree = "<group>";
+		};
+		B8993E662676F50100A7AFD8 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				B8993E5C2676EFCB00A7AFD8 /* Rule.swift */,
+				B8993E5E2676F01700A7AFD8 /* RequiredRule.swift */,
+				B8993E602676F10900A7AFD8 /* MinimumLengthRule.swift */,
+				B8993E622676F1CB00A7AFD8 /* EmailRule.swift */,
+				B8993E642676F1E400A7AFD8 /* PasswordRule.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		B8993E6926772B2800A7AFD8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B8993E6B26772B9200A7AFD8 /* NewsRouter.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B8993E6D267735B200A7AFD8 /* LoginTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8993E6E26773B8100A7AFD8 /* LoginPresenterTest.swift */,
+			);
+			path = LoginTests;
+			sourceTree = "<group>";
+		};
 		B9E43A830A15D5CA3B55B279 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,9 +304,10 @@
 			isa = PBXGroup;
 			children = (
 				D09FB129266114BC00A923FC /* Module */,
+				B8993E6926772B2800A7AFD8 /* Core */,
 				D0C279E025FE394C00F33BFD /* Routes */,
-				D0C279D225FE377D00F33BFD /* Utils */,
 				D074EFDE25FE117F009B96E8 /* Services */,
+				D0C279D225FE377D00F33BFD /* Utility */,
 				D04A994525FE0E3D000822EF /* AppDelegate.swift */,
 				D04A994725FE0E3D000822EF /* SceneDelegate.swift */,
 				D0C27A2325FE64F100F33BFD /* LocaleString.swift */,
@@ -269,6 +323,7 @@
 		D04A995B25FE0E3E000822EF /* NewsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				B8993E6D267735B200A7AFD8 /* LoginTests */,
 				D04B023D2668929A00660087 /* EntityTests */,
 				D04B023C2668927700660087 /* HomeTests */,
 				D04A995E25FE0E3E000822EF /* Info.plist */,
@@ -508,15 +563,16 @@
 			path = Contract;
 			sourceTree = "<group>";
 		};
-		D0C279D225FE377D00F33BFD /* Utils */ = {
+		D0C279D225FE377D00F33BFD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B8993E5B2676EF9700A7AFD8 /* FieldValidator */,
 				D0C279D325FE379600F33BFD /* ApiKey.swift */,
 				D0C27ADD25FF8F9600F33BFD /* ButtonUtils.swift */,
 				D0C27AE225FFA29D00F33BFD /* UserDefaultUtils.swift */,
 				D04B023A26676BCF00660087 /* AlertUtils.swift */,
 			);
-			path = Utils;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		D0C279E025FE394C00F33BFD /* Routes */ = {
@@ -781,11 +837,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8993E652676F1E400A7AFD8 /* PasswordRule.swift in Sources */,
 				B8993E5126721E6800A7AFD8 /* LoginViewController.swift in Sources */,
 				D0C27A3825FE757600F33BFD /* NewsDetailCollectionViewCell.swift in Sources */,
+				B8993E612676F10900A7AFD8 /* MinimumLengthRule.swift in Sources */,
+				B8993E682676F56000A7AFD8 /* FieldValidateable.swift in Sources */,
 				D04A23C2266E151B004DFC15 /* NewsDetailRouter.swift in Sources */,
+				B8993E5F2676F01700A7AFD8 /* RequiredRule.swift in Sources */,
 				D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */,
 				D04A23CA26707FD9004DFC15 /* TabViewController.swift in Sources */,
+				B8993E6C26772B9200A7AFD8 /* NewsRouter.swift in Sources */,
 				D09FB13F26648D3100A923FC /* HomeInteractor.swift in Sources */,
 				D0C279D425FE379600F33BFD /* ApiKey.swift in Sources */,
 				D04A994625FE0E3D000822EF /* AppDelegate.swift in Sources */,
@@ -798,6 +859,7 @@
 				D00A273A267094DD0015D59D /* HomeViewController.swift in Sources */,
 				D04B023B26676BCF00660087 /* AlertUtils.swift in Sources */,
 				B8993E5426721ED800A7AFD8 /* LoginInteractor.swift in Sources */,
+				B8993E632676F1CB00A7AFD8 /* EmailRule.swift in Sources */,
 				D04A998225FE10C4000822EF /* NewsListTableViewCell.swift in Sources */,
 				B8993E5626721EEE00A7AFD8 /* LoginPresenter.swift in Sources */,
 				B8993E5826721FAF00A7AFD8 /* LoginContract.swift in Sources */,
@@ -810,6 +872,7 @@
 				D04A23C4266E1533004DFC15 /* NewsDetailPresenter.swift in Sources */,
 				D0C27AE325FFA29D00F33BFD /* UserDefaultUtils.swift in Sources */,
 				D0C27A3E25FE7CD300F33BFD /* NewsDetailViewModel.swift in Sources */,
+				B8993E5D2676EFCB00A7AFD8 /* Rule.swift in Sources */,
 				D04A994825FE0E3D000822EF /* SceneDelegate.swift in Sources */,
 				B8993E5A2672200100A7AFD8 /* LoginWireframe.swift in Sources */,
 			);
@@ -823,6 +886,7 @@
 				D04B02452669405C00660087 /* HomeRouterTest.swift in Sources */,
 				D04A995D25FE0E3E000822EF /* NewsAppTests.swift in Sources */,
 				D04B02412668932600660087 /* HomeInteractorTest.swift in Sources */,
+				B8993E6F26773B8100A7AFD8 /* LoginPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
