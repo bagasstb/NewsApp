@@ -11,9 +11,11 @@ import XCTest
 class LoginPresenterTest: XCTestCase {
 
     var presenter: LoginPresenter?
+    var view: LoginViewController?
     
     override func setUp() {
         super.setUp()
+        view = LoginWireframe().setupNavigationController()
         presenter = LoginPresenter(interactor: LoginInteractor(), wireframe: LoginWireframe())
         presenter?.viewDidLoad()
         presenter?.emailEditingChanged(email: "ayam@sgmail.com")

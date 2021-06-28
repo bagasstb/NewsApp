@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2248AAB06ACE265D0FB8F495 /* Pods_NewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2201D10D115A7F734F3B3C9 /* Pods_NewsAppUITests.framework */; };
 		88A198ECDE380D61D5950C62 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECB390AC28F6A5971A085D8 /* Pods_NewsApp.framework */; };
+		B88C27B7267AE76B0056320A /* StringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88C27B6267AE76B0056320A /* StringResource.swift */; };
 		B8993E5126721E6800A7AFD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E4F26721E6800A7AFD8 /* LoginViewController.swift */; };
 		B8993E5226721E6800A7AFD8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8993E5026721E6800A7AFD8 /* LoginViewController.xib */; };
 		B8993E5426721ED800A7AFD8 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8993E5326721ED800A7AFD8 /* LoginInteractor.swift */; };
@@ -47,7 +48,6 @@
 		D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074EFE425FE1638009B96E8 /* NewsViewModel.swift */; };
 		D074EFEC25FE177F009B96E8 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074EFEA25FE177F009B96E8 /* NewsDetailViewController.swift */; };
 		D074EFED25FE177F009B96E8 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */; };
-		D07C12F0266A109000DC11EB /* LocaleString.strings in Resources */ = {isa = PBXBuildFile; fileRef = D07C12EF266A109000DC11EB /* LocaleString.strings */; };
 		D09FB13926640B3C00A923FC /* HomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB13826640B3C00A923FC /* HomeContract.swift */; };
 		D09FB13B26648D1600A923FC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB13A26648D1500A923FC /* HomeRouter.swift */; };
 		D09FB13D26648D2500A923FC /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB13C26648D2500A923FC /* HomePresenter.swift */; };
@@ -90,6 +90,7 @@
 		68F8B5B9038A805564211A16 /* Pods-NewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.release.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		A2201D10D115A7F734F3B3C9 /* Pods_NewsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AFE13E8BA6624F32E782BD /* Pods-NewsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-NewsAppUITests/Pods-NewsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B88C27B6267AE76B0056320A /* StringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResource.swift; sourceTree = "<group>"; };
 		B8993E4F26721E6800A7AFD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B8993E5026721E6800A7AFD8 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		B8993E5326721ED800A7AFD8 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		D074EFE425FE1638009B96E8 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		D074EFEA25FE177F009B96E8 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		D074EFEB25FE177F009B96E8 /* NewsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
-		D07C12EF266A109000DC11EB /* LocaleString.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = LocaleString.strings; sourceTree = "<group>"; };
 		D09FB13826640B3C00A923FC /* HomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContract.swift; sourceTree = "<group>"; };
 		D09FB13A26648D1500A923FC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		D09FB13C26648D2500A923FC /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -194,6 +194,14 @@
 				A2201D10D115A7F734F3B3C9 /* Pods_NewsAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B88C27B5267AE7370056320A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B88C27B6267AE76B0056320A /* StringResource.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		B8993E4D26721DEC00A7AFD8 /* Login */ = {
@@ -303,11 +311,12 @@
 		D04A994425FE0E3D000822EF /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				B88C27B5267AE7370056320A /* Resource */,
 				D09FB129266114BC00A923FC /* Module */,
 				B8993E6926772B2800A7AFD8 /* Core */,
 				D0C279E025FE394C00F33BFD /* Routes */,
 				D074EFDE25FE117F009B96E8 /* Services */,
-				D0C279D225FE377D00F33BFD /* Utility */,
+				D0C279D225FE377D00F33BFD /* Utils */,
 				D04A994525FE0E3D000822EF /* AppDelegate.swift */,
 				D04A994725FE0E3D000822EF /* SceneDelegate.swift */,
 				D0C27A2325FE64F100F33BFD /* LocaleString.swift */,
@@ -315,7 +324,6 @@
 				D04A995025FE0E3E000822EF /* LaunchScreen.storyboard */,
 				D04A995325FE0E3E000822EF /* Info.plist */,
 				D0C279CB25FE35D100F33BFD /* Config.xcconfig */,
-				D07C12EF266A109000DC11EB /* LocaleString.strings */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -563,7 +571,7 @@
 			path = Contract;
 			sourceTree = "<group>";
 		};
-		D0C279D225FE377D00F33BFD /* Utility */ = {
+		D0C279D225FE377D00F33BFD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				B8993E5B2676EF9700A7AFD8 /* FieldValidator */,
@@ -572,7 +580,7 @@
 				D0C27AE225FFA29D00F33BFD /* UserDefaultUtils.swift */,
 				D04B023A26676BCF00660087 /* AlertUtils.swift */,
 			);
-			path = Utility;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		D0C279E025FE394C00F33BFD /* Routes */ = {
@@ -705,7 +713,6 @@
 				D04A995225FE0E3E000822EF /* LaunchScreen.storyboard in Resources */,
 				D04A23CB26707FD9004DFC15 /* TabViewController.xib in Resources */,
 				D074EFED25FE177F009B96E8 /* NewsDetailViewController.xib in Resources */,
-				D07C12F0266A109000DC11EB /* LocaleString.strings in Resources */,
 				D0C5741325FFBFFA00FE3BB6 /* FavoriteViewController.xib in Resources */,
 				D04A994F25FE0E3E000822EF /* Assets.xcassets in Resources */,
 				D00A273B267094DD0015D59D /* HomeViewController.xib in Resources */,
@@ -843,6 +850,7 @@
 				B8993E612676F10900A7AFD8 /* MinimumLengthRule.swift in Sources */,
 				B8993E682676F56000A7AFD8 /* FieldValidateable.swift in Sources */,
 				D04A23C2266E151B004DFC15 /* NewsDetailRouter.swift in Sources */,
+				B88C27B7267AE76B0056320A /* StringResource.swift in Sources */,
 				B8993E5F2676F01700A7AFD8 /* RequiredRule.swift in Sources */,
 				D074EFE525FE1638009B96E8 /* NewsViewModel.swift in Sources */,
 				D04A23CA26707FD9004DFC15 /* TabViewController.swift in Sources */,

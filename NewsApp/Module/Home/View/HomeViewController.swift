@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeViewController: UIViewController {
 
@@ -86,4 +87,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         presenter.didSelectNews(at: indexPath.row, title: LocaleString.newsDetail)
     }
 
+}
+
+struct ViewControllerRepresentable: UIViewControllerRepresentable {
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    func makeUIViewController(context: Context) -> UIViewController {
+        UINavigationController(rootViewController: HomeViewController())
+    }
+}
+
+struct HomeViewController_Previews: PreviewProvider {
+    
+    static var previews: some SwiftUI.View {
+        ViewControllerRepresentable()
+            .edgesIgnoringSafeArea(.vertical)
+//            .colorScheme(.dark)
+        //            .environment(\.sizeCategory, ContentSizeCategory.accessibilityExtraExtraExtraLarge)
+    }
+    
 }
