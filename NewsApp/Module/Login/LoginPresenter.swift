@@ -23,6 +23,7 @@ class LoginPresenter: LoginViewProtocol {
     func viewDidLoad() {
         view?.emailErrorLabel.isHidden = true
         view?.passwordErrorLabel.isHidden = true
+        view?.loginLabel.text = LocaleString.login
     }
     
     func loginTouchUpInside(email: String, password: String) {

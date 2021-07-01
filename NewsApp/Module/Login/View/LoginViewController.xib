@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="emailErrorLabel" destination="0II-FE-Imx" id="Yqs-gd-Di9"/>
                 <outlet property="emailTextField" destination="L9b-6l-9qV" id="NO1-vZ-bhu"/>
+                <outlet property="loginLabel" destination="Oez-m8-Mt9" id="qGM-Ie-tJ6"/>
                 <outlet property="passwordErrorLabel" destination="l22-RO-8lM" id="b6d-0N-g0w"/>
                 <outlet property="passwordTextfield" destination="pv8-M3-OHw" id="GNe-yc-PCT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

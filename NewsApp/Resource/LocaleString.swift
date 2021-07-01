@@ -20,4 +20,5 @@ struct LocaleString {
     static let networkErrorMessage = "Unable to contact the server"
     static let okay = "Ok"
     static let newsDetail = "News Detail"
+    static let login = "Login".localized()
 }
